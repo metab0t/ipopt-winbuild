@@ -1,7 +1,7 @@
 os: Visual Studio 2017
 
 install:
-  - C:\msys64\usr\bin\bash -lc 'cd $APPVEYOR_BUILD_FOLDER; MINGW_INSTALLS=mingw64 makepkg-mingw -sLf'
+  - C:\msys64\usr\bin\bash -lc 'cd $APPVEYOR_BUILD_FOLDER; MINGW_INSTALLS=mingw64 makepkg-mingw -sLf --noconfirm'
 
 build: off
 
