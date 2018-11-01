@@ -21,7 +21,6 @@ build() {
   cd "$srcdir"
   mkdir -p build && pushd build
   "$srcdir/Ipopt-$pkgver/./configure" \
-                                      #--enable-dependency-linking --enable-shared \
                                       --enable-static \
                                       --prefix=${MINGW_PREFIX} --with-blas="-L${MINGW_PREFIX}/lib -lopenblas" \
                                       --with-lapack="-L${MINGW_PREFIX}/lib -lopenblas" \
