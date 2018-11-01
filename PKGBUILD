@@ -20,9 +20,12 @@ prepare(){
 build() {
   cd "$srcdir"
   mkdir -p build && pushd build
-  "$srcdir/Ipopt-$pkgver/./configure" --prefix=${MINGW_PREFIX} --with-blas="-L${MINGW_PREFIX}/lib -lopenblas" \
+  "$srcdir/Ipopt-$pkgver/./configure" --enable-dependency-linking --enable-shared --enable-static \
+                                      --prefix=${MINGW_PREFIX} --with-blas="-L${MINGW_PREFIX}/lib -lopenblas" \
                                       --with-lapack="-L${MINGW_PREFIX}/lib -lopenblas" \
-                                      ADD_CFLAGS=-fopenmp ADD_FFLAGS=-fopenmp ADD_CXXFLAGS=-fopenmp
+                                      ADD_CFLAGS="-fopenmp --static" \
+                                      ADD_FFLAGS="-fopenmp --static" \
+                                      ADD_CXXFLAGS=-"-fopenmp --static"
   make
 }
 
