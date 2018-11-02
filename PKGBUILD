@@ -20,7 +20,7 @@ prepare(){
 build() {
   cd "$srcdir"
   mkdir -p build && pushd build
-  "$srcdir/Ipopt-$pkgver/./configure" --enable-dependency-linking --enable-shared --enable-static\
+  "$srcdir/Ipopt-$pkgver/./configure" \
                                       --prefix=${MINGW_PREFIX} --with-blas="-L${MINGW_PREFIX}/lib -lopenblas" \
                                       --with-lapack="-L${MINGW_PREFIX}/lib -lopenblas" \
                                       ADD_CFLAGS="-fopenmp --static" \
